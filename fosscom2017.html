@@ -1,0 +1,745 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>netdata - real-time performance and health monitoring</title>
+
+		<meta name="description" content="A framework for real-time performance and health monitoring">
+		<meta name="author" content="Costa Tsaousis">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/fosscom2017.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-state="home-page">
+					<h1>netdata</h1>
+					<h4>real-time performance and health monitoring</h4>
+					<h5>Simple. Effective. Awesome!</h5>
+					<div class="reveal-netdata-charts home-page" style="text-align: center; float: left; width: 60%; font-size: 10px; padding-top: 5vh;">
+						<div style="width:100%;"></div>
+						<div
+							data-netdata="system.cpu"
+							data-title="CPU"
+							data-chart-library="gauge"
+							data-gauge-max-value="100"
+							data-width="33%"
+							data-after="-60"
+							data-points="60"
+						></div>
+						<div
+							data-netdata="system.io"
+							data-dimensions="in"
+							data-title="Reads"
+							data-chart-library="gauge"
+							data-width="33%"
+							data-after="-60"
+							data-points="60"
+						></div>
+						<div
+							data-netdata="system.io"
+							data-dimensions="out"
+							data-title="Writes"
+							data-chart-library="gauge"
+							data-width="33%"
+							data-after="-60"
+							data-points="60"
+						></div>
+					</div>
+					<div style="text-align: right; float: right; width: 30%;  padding-right: 1em;">
+						<p>
+							<small>
+								&nbsp;
+								<br/>
+
+								<a href="https://my-netdata.io">my-netdata.io</a>
+								<i class="fa fa-home" aria-hidden="true"></i>
+								<br/>
+
+								<a href="https://github.com/firehol/netdata">firehol/netdata</a>
+								<i class="fa fa-github" aria-hidden="true"></i>
+								<br/>
+
+								<a href="http://twitter.com/linuxnetdata">linuxnetdata</a>
+								<i class="fa fa-twitter" aria-hidden="true"></i>
+								<br/>
+
+								<a href="https://www.facebook.com/linuxnetdata/">linuxnetdata</a>
+								<i class="fa fa-facebook-official" aria-hidden="true"></i>
+								<br/>
+							</small>
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>about me</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>role</th>
+								<th>company</th>
+								<th>period</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>C.O.O. <small>Managing<br/>Partner</small></td>
+								<td>Viva Group</td>
+								<td>2009 - now</td>
+							</tr>
+							<tr>
+								<td>C.O.O.</td>
+								<td>NetOne</td>
+								<td>2007 - 2008</td>
+							</tr>
+							<tr>
+								<td>C.T.O.</td>
+								<td>Hellas On Line</td>
+								<td>1999 - 2007</td>
+							</tr>
+							<tr>
+								<td>co-Founder</td>
+								<td>ComNet</td>
+								<td>1997 - 1999</td>
+							</tr>
+							<tr>
+								<td>co-Founder</td>
+								<td>AcropolisNet</td>
+								<td>1995 - 1996</td>
+							</tr>
+						</tbody>
+					</table>
+					<div style="text-align: right; float: right; width: 50%;  padding-right: 1em;">
+						<p>
+							<small>
+								&nbsp;<br/>
+								M.Sc. Telematics (2002)<br/>
+								B.Sc. Computer Science (2001)<br/>
+								&nbsp;
+							</small>
+						</p>
+					</div>
+				</section>
+
+				<section>
+					<h2>my open source projects</h2>
+				</section>
+
+				<section>
+					<h2>FireHOL</h2>
+					<h5>a Linux firewall for humans...</h5>
+					<div style="text-align: left; float: left; width: 49%">
+						<p>
+							<small>
+								<i class="fa fa-home" aria-hidden="true"></i> <a href="https://firehol.org">firehol.org</a><br/>
+								<i class="fa fa-copyright" aria-hidden="true"></i> first release <b>2002</b>, latest release <b>2017</b>
+
+								<br/>&nbsp;<br/>
+								FireHOL is <b>a language to express firewalls</b>.
+								<ul>
+									<li>human friendly, even with huge firewalls</li>
+									<li><span style="color: lightgreen;">scriptable</span>, the config is a BASH script</li>
+									<li>supports IPSETs</li>
+									<li>supports SYNPROXY (<span style="color: lightgreen;">DDoS protection</span>)</li>
+									<li>creates iptables <span style="color: lightgreen;">load balancers</span></li>
+									<li>creates <span style="color: lightgreen;">dynamic</span> firewalls, like auto-blacklisting on <span style="color: lightgreen;">portscan</span>, enable service after <span style="color: lightgreen;">knock</span>, etc.</li>
+									<li>can <span style="color: lightgreen;">load-balance multiple WANs</span></li>
+								</ul>
+							</small>
+						</p>
+					</div>
+
+					<div style="text-align: right; float: right; width: 51%; overflow: hidden;">
+						<pre><code class="hljs" data-trim data-noescape style="font-size: 0.6em; line-height: 1.1em;">
+internet="ppp+"
+lan="eth0"
+admins="example.firehol.org"
+
+masquerade ${internet}
+
+interface ${lan} home
+    policy accept
+
+interface ${internet} world
+    policy drop
+    protection strong
+
+    server ping accept
+    server smtp accept
+    server http accept
+    server ftp  accept
+    server ssh  accept src ${admins}
+
+    client all  accept
+
+router world2home inface ${internet} outface ${lan}
+    policy reject
+    protection strong
+
+    client all accept
+						</code></pre>
+					</div>
+
+				</section>
+
+				<section>
+					<h2>FireQOS</h2>
+					<h5>a Linux traffic shapper <small style="vertical-align: middle;">(and still the only one)</small></h5>
+					<div style="text-align: left; float: left; width: 49%">
+						<p>
+							<small>
+								<i class="fa fa-home" aria-hidden="true"></i> <a href="https://firehol.org">firehol.org</a><br/>
+								<i class="fa fa-copyright" aria-hidden="true"></i> first release <b>2013</b>, latest release <b>2017</b>
+
+								<br/>&nbsp;<br/>
+								FireQOS is <b>a language to express traffic shapping</b>.
+								<ul>
+									<li>human friendly</li>
+									<li><span style="color: lightgreen;">scriptable</span>, the config is a BASH script</li>
+									<li>can shape <span style="color: lightgreen;">inbound</span> and <span style="color: lightgreen;">outbound</span> traffic</li>
+									<li>supports encapsulation <span style="color: lightgreen;">overheads</span> calculation (e.g. ADSL/ATM overheads)</li>
+									<li>supports virtually unlimited nesting of classes, even with <span style="color: lightgreen;">link emulation</span></li>
+									<li>can <code style="color: orange;">tcpdump</code> the contents of any class
+								</ul>
+							</small>
+						</p>
+					</div>
+
+					<div style="text-align: right; float: right; width: 51%; overflow: hidden;">
+						<pre><code class="hljs" data-trim data-noescape style="font-size: 0.6em; line-height: 1.1em;">
+interface eth2 world bidirectional rate 100Mbit
+
+    class critical commit 2Mbit
+            client dns
+            client ntp
+
+    class interactive commit 10Mbit
+            match icmp limit 1Mbit
+
+            server ssh
+            client ssh
+    
+    class web_server commit 70%
+            server http
+
+    class bulk commit 5Mbit
+            server smtp
+            client smtp
+            server rsync
+            client rsync
+
+    class default
+            # the rest of the traffic
+            # ends up, here
+						</code></pre>
+					</div>
+
+				</section>
+
+				<section data-background-transition="convex" data-background="#660000">
+					<h2>All Cybercrime IP feeds</h2>
+					<h5>update-ipsets and iprange</h5>
+					<div style="text-align: left; float: left; width: 75%">
+						<p>
+							<small>
+								<i class="fa fa-home" aria-hidden="true"></i> <a href="https://iplists.firehol.org">iplists.firehol.org</a><br/>
+								<i class="fa fa-copyright" aria-hidden="true"></i> first release <b>2015</b>, latest release <b>5 mins ago</b> (it's a bot)
+
+								<ul>
+									<li><code style="color: orange;">update-ipsets</code> is <b>a bot to download, process and analyze IPSETs</b>.
+										<br/>&nbsp;<br/>
+										It downloads IP Feeds from their maintainers, it processes them to extract IPs, monitors the <span style="color: lightgreen;">age of the IPs listed</span>, detects their <span style="color: lightgreen;">retention policy</span> and checks how they <span style="color: lightgreen;">correlate</span> or <span style="color: lightgreen;">overlap</span><br/>&nbsp;</li>
+
+									<li><code style="color: orange;">iprange</code> is a high performance ipsets processor (it applies sets theory operations to IPSETs). It is really very fast!<br/>&nbsp;</li>
+
+									<li>The site... well it a <span style="color: lightgreen;">monitoring console</span>. <code style="color: orange;">update-ipsets</code> generates static JSON files every few minutes. These files are uploaded to the site and are rendered on charts, maps and tables.</li>
+								</ul>
+							</small>
+						</p>
+					</div>
+
+					<div style="text-align: right; float: right; width: 20%; overflow: hidden;">
+						<img src="images/iplists.png"/>
+					</div>
+
+				</section>
+
+				<section>
+					<h2>netdata...</h2>
+				</section>
+
+				<section>
+					<h2>netdata facts</h2>
+					<p>
+						<small>Released March 30th, 2016 (1,5 year ago).</small>
+						<ul>
+							<li><span style="color: lightgreen;">25.000</span> github stars</li>
+							<li><span style="color: lightgreen;">410.000</span> unique users</li>
+							<li><span style="color: lightgreen;">190.000</span> unique installations</li>
+							<li><span style="color: lightgreen;">8.500.000</span> unique sessions served</li>
+						</ul>
+							<br/>&nbsp;<br/>
+						<small>
+							Figures are reported by the netdata global public <span style="color: lightgreen;">registry</span>,
+							<br/>and are available at <a href="https://my-netdata.io">my-netdata.io</a>.
+							<br/>&nbsp;<br/>
+							But <span style="color: lightgreen;">every netdata can be a registry</span> too,
+							so these figures are probably<br/>just a small part of what is actually happening.
+						</small>
+					</p>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Vertical Slides</h2>
+						<p>Slides can be nested inside of each other.</p>
+						<p>Use the <em>Space</em> key to navigate through all slides.</p>
+						<br>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Basement Level 1</h2>
+						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+					</section>
+					<section>
+						<h2>Basement Level 2</h2>
+						<p>That's it, time to go back up.</p>
+						<br>
+						<a href="#/2">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
+						</a>
+					</section>
+				</section>
+
+				<section>
+					<h2>Slides</h2>
+					<p>
+						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Point of View</h2>
+					<p>
+						Press <strong>ESC</strong> to enter the slide overview.
+					</p>
+					<p>
+						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+					</p>
+				</section>
+
+				<section>
+					<h2>Touch Optimized</h2>
+					<p>
+						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
+					</p>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Markdown support
+
+						Write content using inline or external Markdown.
+						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+
+						```
+						<section data-markdown>
+						  ## Markdown support
+
+						  Write content using inline or external Markdown.
+						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
+						</section>
+						```
+					</script>
+				</section>
+
+				<section>
+					<section id="fragments">
+						<h2>Fragments</h2>
+						<p>Hit the next arrow...</p>
+						<p class="fragment">... to step through ...</p>
+						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
+
+						<aside class="notes">
+							This slide has fragments which are also stepped through in the notes window.
+						</aside>
+					</section>
+					<section>
+						<h2>Fragment Styles</h2>
+						<p>There's different types of fragments, like:</p>
+						<p class="fragment grow">grow</p>
+						<p class="fragment shrink">shrink</p>
+						<p class="fragment fade-out">fade-out</p>
+						<p class="fragment fade-up">fade-up (also down, left and right!)</p>
+						<p class="fragment current-visible">current-visible</p>
+						<p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p>
+					</section>
+				</section>
+
+				<section id="transitions">
+					<h2>Transition Styles</h2>
+					<p>
+						You can select from different transitions, like: <br>
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=slide#/transitions">Slide</a> -
+						<a href="?transition=convex#/transitions">Convex</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a>
+					</p>
+				</section>
+
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						reveal.js comes with a few themes built in: <br>
+						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
+					</p>
+				</section>
+
+				<section>
+					<section data-background="#dddddd">
+						<h2>Slide Backgrounds</h2>
+						<p>
+							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
+						</p>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
+						<h2>Image Backgrounds</h2>
+						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
+						<h2>Tiled Backgrounds</h2>
+						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
+					</section>
+					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
+						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+							<h2>Video Backgrounds</h2>
+							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+						</div>
+					</section>
+					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
+						<h2>... and GIFs!</h2>
+					</section>
+				</section>
+
+				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
+					<h2>Background Transitions</h2>
+					<p>
+						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
+					</p>
+					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
+				</section>
+
+				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
+					<h2>Background Transitions</h2>
+					<p>
+						You can override background transitions per-slide.
+					</p>
+					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
+				</section>
+
+				<section>
+					<h2>Pretty Code</h2>
+					<pre><code class="hljs" data-trim contenteditable>
+function linkify( selector ) {
+  if( supports3DTransforms ) {
+
+    var nodes = document.querySelectorAll( selector );
+
+    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
+      var node = nodes[i];
+
+      if( !node.className ) {
+        node.className += ' roll';
+      }
+    }
+  }
+}
+					</code></pre>
+					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
+				</section>
+
+				<section>
+					<h2>Marvelous List</h2>
+					<ul>
+						<li>No order here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+						<li>Or here</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Fantastic Ordered List</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li>Two is smaller than...</li>
+						<li>Three!</li>
+					</ol>
+				</section>
+
+				<section>
+					<h2>Tabular Tables</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Value</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Apples</td>
+								<td>$1</td>
+								<td>7</td>
+							</tr>
+							<tr>
+								<td>Lemonade</td>
+								<td>$2</td>
+								<td>18</td>
+							</tr>
+							<tr>
+								<td>Bread</td>
+								<td>$3</td>
+								<td>2</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<h2>Clever Quotes</h2>
+					<p>
+						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
+					</p>
+					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
+						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
+						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Intergalactic Interconnections</h2>
+					<p>
+						You can link between slides internally,
+						<a href="#/2/3">like this</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Speaker View</h2>
+					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
+					<p>Press the <em>S</em> key to try it out.</p>
+
+					<aside class="notes">
+						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+					</aside>
+				</section>
+
+				<section>
+					<h2>Export to PDF</h2>
+					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
+					<iframe data-src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+				</section>
+
+				<section>
+					<h2>Global State</h2>
+					<p>
+						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
+						will be added as a class to the document element when the slide is open. This lets you
+						apply broader style changes, like switching the page background.
+					</p>
+				</section>
+
+				<section data-state="customevent">
+					<h2>State Events</h2>
+					<p>
+						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
+					</p>
+					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
+Reveal.addEventListener( 'customevent', function() {
+	console.log( '"customevent" has fired' );
+} );
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Take a Moment</h2>
+					<p>
+						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
+					</p>
+				</section>
+
+				<section>
+					<h2>Much more</h2>
+					<ul>
+						<li>Right-to-left support</li>
+						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
+						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
+					</ul>
+				</section>
+
+				<section style="text-align: left;">
+					<h1>THE END</h1>
+					<p>
+						- <a href="http://slides.com">Try the online editor</a> <br>
+						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
+					</p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 960,
+				height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.5,
+
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
+
+<script type="text/javascript">
+
+	var revealIsReady = false;
+	var netdataIsReady = false;
+
+	var netdataDontStart = false;
+	var netdataNoBootstrap = true;
+	var netdataRegistry = false;
+	var netdataShowHelp = false;
+	var netdataShowAlarms = false;
+	var netdataTheme = 'slate';
+
+	var netdataCallback = function() {
+		netdataIsReady = true;
+		netdataUpdate();
+	};
+
+	function netdataUpdate(event) {
+		if(netdataIsReady && revealIsReady) {
+
+			if(typeof event !== 'undefined'
+				&& typeof event.currentSlide !== 'undefined') {
+				// console.log(event);
+
+				$('.reveal-netdata-charts').hide();
+
+				if(typeof event.currentSlide.dataset !== 'undefined'
+					&& typeof event.currentSlide.dataset.state !== 'undefined'
+					) {
+					console.log(event.currentSlide.dataset.state);
+					$(('.' + event.currentSlide.dataset.state).toString()).show();
+				}
+			}
+
+			NETDATA.onscroll();
+		}
+	}
+
+
+</script>
+<script type="text/javascript" src="https://my-netdata.io/dashboard.js"></script>
+<script type="text/javascript">
+	Reveal.addEventListener( 'ready', function( event ) {
+		revealIsReady = true;
+		netdataUpdate(event);
+	} );
+	Reveal.addEventListener( 'slidechanged', function( event ) {
+		netdataUpdate(event);
+	} );
+	Reveal.addEventListener( 'overviewshown', function( event ) {
+		netdataUpdate(event);
+	} );
+	Reveal.addEventListener( 'overviewhidden', function( event ) {
+		netdataUpdate(event);
+	} );
+	Reveal.addEventListener( 'home-page', function() {
+	}, false );
+</script>

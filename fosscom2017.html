@@ -143,7 +143,7 @@
 							<small>
 								&nbsp;<br/>
 								M.Sc. Telematics (2002)<br/>
-								B.Sc. Computer Science (2001)<br/>
+								B.Sc. Computer Science (1991)<br/>
 								&nbsp;
 							</small>
 						</p>
@@ -320,7 +320,7 @@ interface eth2 world bidirectional rate 100Mbit
 				</section>
 
 				<section>
-					<img src="images/github-header-20171022.png"/>
+					<img src="images/github-stats.png" width="60%"/>
 				</section>
 
 				<section>
@@ -386,7 +386,155 @@ interface eth2 world bidirectional rate 100Mbit
 					<section data-autoslide="3000"><img src="images/Screenshot from 2017-10-22 04-16-11.png"/></section>
 					<section data-autoslide="3000"><img src="images/Screenshot from 2017-10-22 04-16-51.png"/></section>
 					<section data-autoslide="3000"><img src="images/Screenshot from 2017-10-22 04-19-36.png"/></section>
-					<section data-autoslide="6000"><img src="images/Screenshot from 2017-10-22 03-10-35.png"/></section>
+					<section><img src="images/Screenshot from 2017-10-22 03-10-35.png"/></section>
+				</section>
+
+				<section>
+					<section>
+						<h2>So, why people <span style="color: lightgreen;">fall in love</span><br/>with netdata?</h2>
+					</section>
+					<section data-background-video="images/Peek 2017-10-22 15-30.webm" data-background-video-loop data-background-video-muted data-background-transition="convex">
+						<h2>netdata dashboards are <span style="color: lightgreen;">impressive</span></h2>
+						<ul>
+							<li>unbelievably <b>fast</b></li>
+							<li>highly <b>interactive</b></li>
+							<li><b>simple</b> but <b>powerful</b></li>
+							<li>provide massive <b>insights</b></li>
+							<li>and unparalleled <b>detail</b></li>
+						</ul>
+						<p>
+							<small>
+								<q>
+									The background video runs at <b>normal speed</b>,<br/>
+									page scrolling with mouse-wheel,<br/>
+									charts' zooming with SHIFT + mouse-wheel.
+								</q>
+							</small>
+						</p>
+					</section>
+					<section>
+						<h2>netdata dashboards are <span style="color: lightgreen;">meaningful</span></h2>
+						<ul>
+							<li><span style="color: lightgreen;">metrics</span> are organized into <span style="color: lightgreen;">charts</span></li>
+							<li>charts have <span style="color: lightgreen;">a meaning</span>, a scope, a purpose, that is bundled with a title, a description, a unit of measurement and related <span style="color: lightgreen;">monitoring alarms</span></li>
+							<li>charts are organized into <span style="color: lightgreen;">families</span></li>
+							<li>families are organized into <span style="color: lightgreen;">apps</span></li>
+							<li>apps are organized into <span style="color: lightgreen;">hosts</span></li>
+						</ul>
+						<p>
+							<small>
+								<q>
+									More than 30% of the work on netdata, was spent on understanding what each metric monitors, what it means for us (the users) and how it should be presented
+								</q>
+							</small>
+						</p>
+					</section>
+					<section>
+						<h2>netdata is sysadmin <span style="color: lightgreen;">friendly</span></h2>
+						<small>
+							&nbsp;<br/>
+							&nbsp;<br/>
+						</small>
+						<ul>
+							<li><span style="color: lightgreen;">zero</span> disk I/O</li>
+							<li><span style="color: lightgreen;">zero</span> network activity</li>
+							<li><span style="color: lightgreen;">zero</span> configuration</li>
+							<li><span style="color: lightgreen;">zero</span> maintainance</li>
+							<li><span style="color: lightgreen;">zero</span> dedicated resources<small><br/>&nbsp;<br/>&nbsp;</small></li>
+							<li><span style="color: lightgreen;">1% CPU</span> of a single core</li>
+							<li><span style="color: lightgreen;">a few MB</span> of RAM</li>
+							<li><span style="color: lightgreen;">almost zero</span> escalated priveleges</li>
+						</ul>
+						<p>
+							&nbsp;<br/>
+							<small>
+								<q>
+									These depend on the setup details, but for <b>default setups</b>, the above are <span style="color: lightgreen;">true</span>
+								</q>
+							</small>
+						</p>
+					</section>
+
+					<section>
+						<h2>netdata sends <span style="color: lightgreen;">alarms</span></h2>
+						<div style="text-align: left; float: left; width: 49%">
+							<ul>
+								<li>alarms are <span style="color: lightgreen;">role</span> based</li>
+								<li>each role can send notifications to multiple <span style="color: lightgreen;">recipients</span> over multiple <span style="color: lightgreen;">channels</span></li>
+								<li>each recipient on every channel, can filter notifications based on criticality</li>
+							</ul>
+						</div>
+
+						<div style="text-align: right; float: right; width: 51%; overflow: hidden;">
+						<img src="images/netdata-notifications.png"/>
+						</div>
+
+					</section>
+
+					<section>
+						<h2>netdata is <span style="color: lightgreen;">extensible</span></h2>
+						<h5>and comes with a large set of plugins</h5>
+						<img src="images/netdata-plugins.png" width="80%"/>
+					</section>
+
+					<section>
+						<h2>netdata is <span style="color: lightgreen;">simple</span></h2>
+						<p>
+							<ol>
+								<li>
+									install it<br/>
+									<small>
+										netdata knows how to collect more than <span style="color: lightgreen;">5.000 distinct metrics out-of-the-box</span>, all of them with <span style="color: lightgreen;">auto-detection</span>, most probably you will only need to configure your other apps to allow netdata access them.
+										<br/>&nbsp;
+									</small>
+								</li>
+								<li>
+									optional: configure alarm notifications<br/>
+									<small>
+										netdata comes pre-configured with more than <span style="color: lightgreen;">100 alarms and alarm templates</span>, that by default sent notifications by email and appear on the dashboard. To use other notification channels, netdata needs to know API keys and recipients.
+										<br/>&nbsp;
+									</small>
+								</li>
+								<li>
+									optional: integrate it with your other tools<br/>
+									<small>
+										netdata can push metrics to Graphite, OpenTSDB, InfluxDB,
+										Prometheus, and all compatible ones, so that other tools like Grafana can use netdata metrics.
+										<br/>&nbsp;
+									</small>
+								</li>
+								<li>
+									use it<br/>
+									<small>
+										to diagnose performance and availability issues
+									</small>
+								</li>
+							</ol>
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Thank you!</h2>
+					&nbsp;
+					<br/>
+
+					<a href="https://my-netdata.io">my-netdata.io</a>
+					<i class="fa fa-home" aria-hidden="true"></i>
+					<br/>
+
+					<a href="https://github.com/firehol/netdata">firehol/netdata</a>
+					<i class="fa fa-github" aria-hidden="true"></i>
+					<br/>
+
+					<a href="http://twitter.com/linuxnetdata">linuxnetdata</a>
+					<i class="fa fa-twitter" aria-hidden="true"></i>
+					<br/>
+
+					<a href="https://www.facebook.com/linuxnetdata/">linuxnetdata</a>
+					<i class="fa fa-facebook-official" aria-hidden="true"></i>
+					<br/>
+
 				</section>
 
 				<!-- Example of nested vertical slides -->

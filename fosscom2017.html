@@ -129,12 +129,12 @@
 							<tr>
 								<td>co-Founder</td>
 								<td>ComNet</td>
-								<td>1997 - 1999</td>
+								<td>1996 - 1999</td>
 							</tr>
 							<tr>
-								<td>co-Founder</td>
-								<td>AcropolisNet</td>
-								<td>1995 - 1996</td>
+								<td>dev, sysadm</td>
+								<td><i>not-internet related</i></td>
+								<td>1989 - 1996</td>
 							</tr>
 						</tbody>
 					</table>
@@ -281,7 +281,7 @@ interface eth2 world bidirectional rate 100Mbit
 
 									<li><code style="color: orange;">iprange</code> is a high performance ipsets processor (it applies sets theory operations to IPSETs). It is really very fast!<br/>&nbsp;</li>
 
-									<li>The site... well it a <span style="color: lightgreen;">monitoring console</span>. <code style="color: orange;">update-ipsets</code> generates static JSON files every few minutes. These files are uploaded to the site and are rendered on charts, maps and tables.</li>
+									<li>The site... well it is a <span style="color: lightgreen;">monitoring console</span>. <code style="color: orange;">update-ipsets</code> generates static JSON files every few minutes. These files are uploaded to the site and are rendered on charts, maps and tables.</li>
 								</ul>
 							</small>
 						</p>
@@ -298,14 +298,43 @@ interface eth2 world bidirectional rate 100Mbit
 				</section>
 
 				<section>
+					<h2>the beginning...</h2>
+					<q>&ldquo;hm... it seems there is nothing to<br/>visualize <span style="color: orange;">QoS</span> classes in real-time&rdquo;</q>
+				</section>
+
+				<section>
+					<h2>the <span style="color: lightgreen;">unofficial</span> early roadmap</h2>
+					<ul>
+						<li><code>tc ... | awk ... >/run/qos.json</code></li>
+						<li>let's make it binary <code>>/run/qos.json</code></li>
+						<li>hm... I better turn this to a <span style="color: lightgreen;">daemon</span>...</li>
+						<li>nice! let's make it a <span style="color: lightgreen;">web server</span>...</li>
+						<li><b>hey... this is really <span style="color: lightgreen;">fast</span> with <span style="color: lightgreen;">low overhead</span>...</b></li>
+						<li>I think it can expose more <span style="color: lightgreen;">system info</span>...</li>
+						<li>cool! let it <span style="color: lightgreen;">run commands</span> too, to collect data...</li>
+						<li>hm... <span style="color: orange;">google charts are slow</span>...</li>
+						<li>I see there are more <span style="color: lightgreen;">chart libraries</span>...</li>
+						<li><b>wow! let's build <span style="color: lightgreen;">the fastest UI</span>...</b></li>
+				</section>
+
+				<section>
+					<h2>Wed, March 30th, 2016</h2>
+					<p>a morning coffee, some news reading,<br/>a few screenshots, and a post.</p>
+				</section>
+
+				<section>
+					<q>&ldquo;Costa, you are at the<br/><span style="color: orange;">hacker</span>news home page!&rdquo;</q>
+				</section>
+
+				<section>
 					<h2>netdata facts</h2>
 					<p>
 						<small>Released March 30th, 2016 (1,5 year ago).</small>
 						<ul>
 							<li><span style="color: lightgreen;">25.000</span> github stars</li>
-							<li><span style="color: lightgreen;">410.000</span> unique users<small>*</small></li>
-							<li><span style="color: lightgreen;">190.000</span> unique installations<small>*</small></li>
-							<li><span style="color: lightgreen;">8.500.000</span> unique sessions served<small>*</small></li>
+							<li><span style="color: lightgreen;">195.000</span> unique installations<small>*</small></li>
+							<li><span style="color: lightgreen;">420.000</span> unique dashboard users<small>*</small></li>
+							<li><span style="color: lightgreen;">9.000.000</span> unique sessions served<small>*</small></li>
 							<li><span style="color: lightgreen;">3.000.000</span> docker pulls</li>
 						</ul>
 							<br/>&nbsp;<br/>
@@ -320,7 +349,28 @@ interface eth2 world bidirectional rate 100Mbit
 				</section>
 
 				<section>
-					<img src="images/github-stats.png" width="60%"/>
+					<h2>netdata on github</h2>
+					<div style="width: 100%; height: 100%">
+						<div style="text-align: left; float: left; width: 40%">
+							<p>
+								Every day:
+								<ul>
+									<li>500+ cloners</li>
+									<li>1200+ visitors</li>
+								</ul>
+							</p>
+							<p>
+								Every 15 days:
+								<ul>
+									<li>5000+ cloners</li>
+									<li>10000+ visitors</li>
+								</ul>
+							</p>
+						</div>
+						<div style="text-align: right; float: right; width: 60%; height: 100%; overflow: hidden;">
+							<img src="images/github-stats.png" width="60%"/>
+						</div>
+					</div>
 				</section>
 
 				<section>
@@ -402,7 +452,7 @@ interface eth2 world bidirectional rate 100Mbit
 						<h2>So, why people <span style="color: lightgreen;">fall in love</span><br/>with netdata?</h2>
 					</section>
 					<section data-background-video="images/Peek 2017-10-22 15-30.webm" data-background-video-loop data-background-video-muted data-background-transition="convex">
-						<h2>netdata dashboards are <span style="color: lightgreen;">impressive</span></h2>
+						<h2>netdata dashboards are <span style="color: lightgreen;">awesome</span></h2>
 						<ul>
 							<li>unbelievably <b>fast</b></li>
 							<li>highly <b>interactive</b></li>

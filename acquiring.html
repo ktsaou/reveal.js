@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>VivaWallet Acquiring</title>
+
+		<meta name="description" content="A framework for real-time performance and health monitoring">
+		<meta name="author" content="Costa Tsaousis">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/fosscom2017.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style>
+		.reveal .footer {
+			position: absolute;
+			bottom: 1em;
+			left: 1em;
+			font-size: 0.5em;
+		}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class='footer'>
+				&nbsp;
+			</div>
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-state="transactions-distribution">
+					<h4>acquiring transactions distribution</h4>
+					<h6>last 4 hours</h6>
+					<div class="reveal-netdata-charts transactions-distribution" style="text-align: center; width: 100%; height: 400px; font-size: 10px; padding-top: 10px;">
+						<div style="width:24%; display: inline-block;">
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="euronet"
+								data-chart-library="easypiechart"
+								data-title="euronet"
+								data-width="100%"
+								data-before="0"
+								data-after="-14400"
+								data-points="1"
+								data-update-every="60"
+								data-decimal-digits="1"
+								data-append-options="percentage,unaligned"
+								data-easypiechart-min-value="0"
+								data-easypiechart-max-value="100"
+								data-easypiechart-linewidth="15"
+								data-colors="#5555aa ONLY"
+								data-units="%"
+								></div>
+							<br/>
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="euronet"
+								data-legend="false"
+								data-dygraph-includezero="true"
+								data-dygraph-yaxislabelwidth="14"
+								data-dygraph-xpixelsperlabel="30"
+								data-dygraph-xaxislabelwidth="22"
+								data-dygraph-ypixelsperlabel="10"
+								data-dygraph-valuerange="[0, 100]"
+								data-dygraph-ylabelwidth="0"
+								data-after="-14400"
+								data-before="0"
+								data-title=""
+								data-units=""
+								data-height="100px"
+								data-width="100%"
+								data-append-options="percentage"
+								data-colors="#5555aa ONLY"
+								data-decimal-digits="0"
+								></div>
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="euronet"
+								data-chart-library="gauge"
+								data-gauge-min-value="0"
+								data-gauge-max-value="100"
+								data-after="-60"
+								data-before="0"
+								data-points="1"
+								data-update-every="2"
+								data-title="last min"
+								data-units="%"
+								data-height="100px"
+								data-width="90%"
+								data-append-options="percentage|unaligned"
+								data-colors="#5555aa ONLY"
+								data-decimal-digits="1"
+								></div>
+						</div>
+						<div style="width:24%; display: inline-block;">
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="euronetpos"
+								data-chart-library="easypiechart"
+								data-title="euronet POS"
+								data-width="100%"
+								data-before="0"
+								data-after="-14400"
+								data-points="1"
+								data-update-every="60"
+								data-decimal-digits="1"
+								data-append-options="percentage,unaligned"
+								data-easypiechart-min-value="0"
+								data-easypiechart-max-value="100"
+								data-easypiechart-linewidth="15"
+								data-colors="#dd5500 ONLY"
+								data-units="%"
+								></div>
+							<br/>
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="euronetpos"
+								data-legend="false"
+								data-dygraph-includezero="true"
+								data-dygraph-yaxislabelwidth="14"
+								data-dygraph-xpixelsperlabel="30"
+								data-dygraph-xaxislabelwidth="22"
+								data-dygraph-ypixelsperlabel="10"
+								data-dygraph-valuerange="[0, 100]"
+								data-dygraph-ylabelwidth="0"
+								data-after="-14400"
+								data-before="0"
+								data-title=""
+								data-units=""
+								data-height="100px"
+								data-width="100%"
+								data-append-options="percentage"
+								data-colors="#dd5500 ONLY"
+								data-decimal-digits="0"
+								></div>
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="euronetpos"
+								data-chart-library="gauge"
+								data-gauge-min-value="0"
+								data-gauge-max-value="100"
+								data-after="-60"
+								data-before="0"
+								data-points="1"
+								data-update-every="2"
+								data-title="last min"
+								data-units="%"
+								data-height="100px"
+								data-width="90%"
+								data-append-options="percentage|unaligned"
+								data-colors="#dd5500 ONLY"
+								data-decimal-digits="1"
+								></div>
+						</div>
+						<div style="width:24%; display: inline-block;">
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="mastercard"
+								data-chart-library="easypiechart"
+								data-title="mastercard"
+								data-width="100%"
+								data-before="0"
+								data-after="-14400"
+								data-points="1"
+								data-update-every="60"
+								data-decimal-digits="1"
+								data-append-options="percentage,unaligned"
+								data-easypiechart-min-value="0"
+								data-easypiechart-max-value="100"
+								data-easypiechart-linewidth="15"
+								data-colors="#228822 ONLY"
+								data-units="%"
+							></div>
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="mastercard"
+								data-legend="false"
+								data-dygraph-includezero="true"
+								data-dygraph-yaxislabelwidth="14"
+								data-dygraph-xpixelsperlabel="30"
+								data-dygraph-xaxislabelwidth="22"
+								data-dygraph-ypixelsperlabel="10"
+								data-dygraph-valuerange="[0, 100]"
+								data-dygraph-ylabelwidth="0"
+								data-after="-14400"
+								data-before="0"
+								data-title=""
+								data-units=""
+								data-height="100px"
+								data-width="100%"
+								data-append-options="percentage"
+								data-colors="#228822 ONLY"
+								data-decimal-digits="0"
+								></div>
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="mastercard"
+								data-chart-library="gauge"
+								data-gauge-min-value="0"
+								data-gauge-max-value="100"
+								data-after="-60"
+								data-before="0"
+								data-points="1"
+								data-update-every="2"
+								data-title="last min"
+								data-units="%"
+								data-height="100px"
+								data-width="90%"
+								data-append-options="percentage|unaligned"
+								data-colors="#228822 ONLY"
+								data-decimal-digits="1"
+								></div>
+						</div>
+						<div style="width:24%; display: inline-block;">
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="firstdata"
+								data-chart-library="easypiechart"
+								data-title="firstdata"
+								data-width="100%"
+								data-before="0"
+								data-after="-14400"
+								data-points="1"
+								data-update-every="60"
+								data-decimal-digits="1"
+								data-append-options="percentage,unaligned"
+								data-easypiechart-min-value="0"
+								data-easypiechart-max-value="100"
+								data-easypiechart-linewidth="15"
+								data-colors="#aa7799 ONLY"
+								data-units="%"
+								></div>
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="firstdata"
+								data-legend="false"
+								data-dygraph-includezero="true"
+								data-dygraph-yaxislabelwidth="14"
+								data-dygraph-xpixelsperlabel="30"
+								data-dygraph-xaxislabelwidth="22"
+								data-dygraph-ypixelsperlabel="10"
+								data-dygraph-valuerange="[0, 100]"
+								data-dygraph-ylabelwidth="0"
+								data-after="-14400"
+								data-before="0"
+								data-title=""
+								data-units=""
+								data-height="100px"
+								data-width="100%"
+								data-append-options="percentage"
+								data-colors="#aa7799 ONLY"
+								data-decimal-digits="0"
+								></div>
+							<div
+								data-netdata="acquiring.requests_by_backend"
+								data-dimensions="firstdata"
+								data-chart-library="gauge"
+								data-gauge-min-value="0"
+								data-gauge-max-value="100"
+								data-after="-60"
+								data-before="0"
+								data-points="1"
+								data-update-every="2"
+								data-title="last min"
+								data-units="%"
+								data-height="100px"
+								data-width="90%"
+								data-append-options="percentage|unaligned"
+								data-colors="#aa7799 ONLY"
+								data-decimal-digits="1"
+								></div>
+						</div>
+					</div>
+				</section>
+
+
+
+
+
+
+				<section data-state="transactions-approved">
+					<h4>acquiring transactions approved</h4>
+					<h6>last 4 hours</h6>
+					<div class="reveal-netdata-charts transactions-approved" style="text-align: center; width: 100%; height: 300px; font-size: 10px; padding-top: 10px;">
+						<div style="width:19%; display: inline-block;">
+							<div
+								data-netdata="acquiring.responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-chart-library="easypiechart"
+								data-title="overall"
+								data-width="100%"
+								data-before="0"
+								data-after="-14400"
+								data-points="1"
+								data-update-every="60"
+								data-decimal-digits="1"
+								data-append-options="percentage,unaligned"
+								data-easypiechart-min-value="0"
+								data-easypiechart-max-value="100"
+								data-easypiechart-linewidth="15"
+								data-colors="#888888 ONLY"
+								data-units="%"
+								></div>
+							<br/>
+							<div
+								data-netdata="acquiring.responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-legend="false"
+								data-dygraph-includezero="true"
+								data-dygraph-yaxislabelwidth="14"
+								data-dygraph-xpixelsperlabel="30"
+								data-dygraph-xaxislabelwidth="22"
+								data-dygraph-ypixelsperlabel="10"
+								data-dygraph-valuerange="[0, 100]"
+								data-dygraph-ylabelwidth="0"
+								data-after="-14400"
+								data-before="0"
+								data-title=""
+								data-units=""
+								data-height="100px"
+								data-width="100%"
+								data-append-options="percentage"
+								data-colors="#888888 ONLY"
+								data-decimal-digits="0"
+								></div>
+								<br/>&nbsp;<br/>
+							<div
+								data-netdata="acquiring.responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-chart-library="gauge"
+								data-gauge-min-value="0"
+								data-gauge-max-value="100"
+								data-after="-300"
+								data-before="0"
+								data-points="1"
+								data-update-every="2"
+								data-title="last 5 min"
+								data-units="%"
+								data-height="100px"
+								data-width="90%"
+								data-append-options="percentage|unaligned"
+								data-colors="#888888 ONLY"
+								data-decimal-digits="2"
+								></div>
+						</div>
+						<div style="width:3%; display: inline-block;">
+						</div>
+						<div style="width:19%; display: inline-block;">
+							<div
+								data-netdata="acquiring.euronet_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-chart-library="easypiechart"
+								data-title="euronet"
+								data-width="100%"
+								data-before="0"
+								data-after="-14400"
+								data-points="1"
+								data-update-every="60"
+								data-decimal-digits="1"
+								data-append-options="percentage,unaligned"
+								data-easypiechart-min-value="0"
+								data-easypiechart-max-value="100"
+								data-easypiechart-linewidth="15"
+								data-colors="#5555aa ONLY"
+								data-units="%"
+								></div>
+							<br/>
+							<div
+								data-netdata="acquiring.euronet_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-legend="false"
+								data-dygraph-includezero="true"
+								data-dygraph-yaxislabelwidth="14"
+								data-dygraph-xpixelsperlabel="30"
+								data-dygraph-xaxislabelwidth="22"
+								data-dygraph-ypixelsperlabel="10"
+								data-dygraph-valuerange="[0, 100]"
+								data-dygraph-ylabelwidth="0"
+								data-after="-14400"
+								data-before="0"
+								data-title=""
+								data-units=""
+								data-height="100px"
+								data-width="100%"
+								data-append-options="percentage"
+								data-colors="#5555aa ONLY"
+								data-decimal-digits="0"
+								></div>
+								<br/>&nbsp;<br/>
+							<div
+								data-netdata="acquiring.euronet_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-chart-library="gauge"
+								data-gauge-min-value="0"
+								data-gauge-max-value="100"
+								data-after="-300"
+								data-before="0"
+								data-points="1"
+								data-update-every="2"
+								data-title="last 5 min"
+								data-units="%"
+								data-height="100px"
+								data-width="90%"
+								data-append-options="percentage|unaligned"
+								data-colors="#5555aa ONLY"
+								data-decimal-digits="2"
+								></div>
+						</div>
+						<div style="width:19%; display: inline-block;">
+							<div
+								data-netdata="acquiring.euronetpos_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-chart-library="easypiechart"
+								data-title="euronet POS"
+								data-width="100%"
+								data-before="0"
+								data-after="-14400"
+								data-points="1"
+								data-update-every="60"
+								data-decimal-digits="1"
+								data-append-options="percentage,unaligned"
+								data-easypiechart-min-value="0"
+								data-easypiechart-max-value="100"
+								data-easypiechart-linewidth="15"
+								data-colors="#dd5500 ONLY"
+								data-units="%"
+								></div>
+							<br/>
+							<div
+								data-netdata="acquiring.euronetpos_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-legend="false"
+								data-dygraph-includezero="true"
+								data-dygraph-yaxislabelwidth="14"
+								data-dygraph-xpixelsperlabel="30"
+								data-dygraph-xaxislabelwidth="22"
+								data-dygraph-ypixelsperlabel="10"
+								data-dygraph-valuerange="[0, 100]"
+								data-dygraph-ylabelwidth="0"
+								data-after="-14400"
+								data-before="0"
+								data-title=""
+								data-units=""
+								data-height="100px"
+								data-width="100%"
+								data-append-options="percentage"
+								data-colors="#dd5500 ONLY"
+								data-decimal-digits="0"
+								></div>
+								<br/>&nbsp;<br/>
+							<div
+								data-netdata="acquiring.euronetpos_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-chart-library="gauge"
+								data-gauge-min-value="0"
+								data-gauge-max-value="100"
+								data-after="-300"
+								data-before="0"
+								data-points="1"
+								data-update-every="2"
+								data-title="last 5 min"
+								data-units="%"
+								data-height="100px"
+								data-width="90%"
+								data-append-options="percentage|unaligned"
+								data-colors="#dd5500 ONLY"
+								data-decimal-digits="2"
+								></div>
+						</div>
+						<div style="width:19%; display: inline-block;">
+							<div
+								data-netdata="acquiring.mastercard_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-chart-library="easypiechart"
+								data-title="mastercard"
+								data-width="100%"
+								data-before="0"
+								data-after="-14400"
+								data-points="1"
+								data-update-every="60"
+								data-decimal-digits="1"
+								data-append-options="percentage,unaligned"
+								data-easypiechart-min-value="0"
+								data-easypiechart-max-value="100"
+								data-easypiechart-linewidth="15"
+								data-colors="#228822 ONLY"
+								data-units="%"
+							></div>
+							<div
+								data-netdata="acquiring.mastercard_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-legend="false"
+								data-dygraph-includezero="true"
+								data-dygraph-yaxislabelwidth="14"
+								data-dygraph-xpixelsperlabel="30"
+								data-dygraph-xaxislabelwidth="22"
+								data-dygraph-ypixelsperlabel="10"
+								data-dygraph-valuerange="[0, 100]"
+								data-dygraph-ylabelwidth="0"
+								data-after="-14400"
+								data-before="0"
+								data-title=""
+								data-units=""
+								data-height="100px"
+								data-width="100%"
+								data-append-options="percentage"
+								data-colors="#228822 ONLY"
+								data-decimal-digits="0"
+								></div>
+								<br/>&nbsp;<br/>
+							<div
+								data-netdata="acquiring.mastercard_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-chart-library="gauge"
+								data-gauge-min-value="0"
+								data-gauge-max-value="100"
+								data-after="-300"
+								data-before="0"
+								data-points="1"
+								data-update-every="2"
+								data-title="last 5 min"
+								data-units="%"
+								data-height="100px"
+								data-width="90%"
+								data-append-options="percentage|unaligned"
+								data-colors="#228822 ONLY"
+								data-decimal-digits="2"
+								></div>
+						</div>
+						<div style="width:19%; display: inline-block;">
+							<div
+								data-netdata="acquiring.firstdata_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-chart-library="easypiechart"
+								data-title="firstdata"
+								data-width="100%"
+								data-before="0"
+								data-after="-14400"
+								data-points="1"
+								data-update-every="60"
+								data-decimal-digits="1"
+								data-append-options="percentage,unaligned"
+								data-easypiechart-min-value="0"
+								data-easypiechart-max-value="100"
+								data-easypiechart-linewidth="15"
+								data-colors="#aa7799 ONLY"
+								data-units="%"
+								></div>
+							<div
+								data-netdata="acquiring.firstdata_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-legend="false"
+								data-dygraph-includezero="true"
+								data-dygraph-yaxislabelwidth="14"
+								data-dygraph-xpixelsperlabel="30"
+								data-dygraph-xaxislabelwidth="22"
+								data-dygraph-ypixelsperlabel="10"
+								data-dygraph-valuerange="[0, 100]"
+								data-dygraph-ylabelwidth="0"
+								data-after="-14400"
+								data-before="0"
+								data-title=""
+								data-units=""
+								data-height="100px"
+								data-width="100%"
+								data-append-options="percentage"
+								data-colors="#aa7799 ONLY"
+								data-decimal-digits="0"
+								></div>
+								<br/>&nbsp;<br/>
+							<div
+								data-netdata="acquiring.firstdata_responses_by_errorcode"
+								data-dimensions="00 approved"
+								data-chart-library="gauge"
+								data-gauge-min-value="0"
+								data-gauge-max-value="100"
+								data-after="-300"
+								data-before="0"
+								data-points="1"
+								data-update-every="2"
+								data-title="last 5 min"
+								data-units="%"
+								data-height="100px"
+								data-width="90%"
+								data-append-options="percentage|unaligned"
+								data-colors="#aa7799 ONLY"
+								data-decimal-digits="2"
+								></div>
+						</div>
+					</div>
+				</section>
+
+
+
+
+
+
+<!--
+				<section data-state="finish">
+				</section>
+-->
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				// The "normal" size of the presentation, aspect ratio will be preserved
+				// when the presentation is scaled to fit different resolutions. Can be
+				// specified using percentage units.
+				width: 960,
+				height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.5,
+
+				controls: false,
+				progress: false,
+				history: false,
+				center: false,
+				loop: true,
+				overview: false,
+				keyboard: true,
+				touch: false,
+				help: false,
+				showNotes: false,
+				autoSlideStoppable: true,
+
+				autoSlide: 30000,
+
+				transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
+
+<script type="text/javascript">
+
+	var revealIsReady = false;
+	var netdataIsReady = false;
+
+	var netdataDontStart = false;
+	var netdataNoBootstrap = true;
+	var netdataRegistry = false;
+	var netdataShowHelp = false;
+	var netdataShowAlarms = false;
+	// var netdataIntersectionObserver = false;
+	var netdataTheme = 'slate';
+	// var netdataServer = 'https://jira.viva.gr/netdata/';
+	// var netdataServerStatic = 'http://localhost:19999/';
+
+	var netdataCallback = function() {
+		netdataIsReady = true;
+		netdataUpdate();
+	};
+
+	function netdataUpdate(event) {
+		if(netdataIsReady && revealIsReady) {
+			if(typeof event !== 'undefined'
+				&& typeof event.currentSlide !== 'undefined') {
+
+				$('.reveal-netdata-charts').hide();
+
+				if(typeof event.currentSlide.dataset !== 'undefined'
+					&& typeof event.currentSlide.dataset.state !== 'undefined'
+					) {
+					console.log('enabling charts for slide: ' + event.currentSlide.dataset.state);
+					$(('.' + event.currentSlide.dataset.state).toString()).show();
+				}
+			}
+
+			NETDATA.onscroll();
+		}
+	}
+
+	function showFooter() {
+		document.querySelector('.reveal .footer').style.display = 'block';
+	}
+
+	function hideFooter() {
+		document.querySelector('.reveal .footer').style.display = 'none';
+	}
+
+	var lastReload = Date.now();
+	function checkReload() {
+		var now = Date.now();
+		if(now - lastReload > 10 * 60 * 1000) {
+			window.location.hash = "#"
+			location.reload();
+		}
+	}
+
+
+</script>
+<script type="text/javascript" src="https://jira.viva.gr/netdata/dashboard.js"></script>
+<script type="text/javascript">
+
+	NETDATA.options.current.pixels_per_point = 1;
+	NETDATA.options.current.stop_updates_when_focus_is_lost = false;
+
+	
+	Reveal.addEventListener( 'ready', function( event ) {
+		revealIsReady = true;
+		netdataUpdate(event);
+	} );
+	
+	Reveal.addEventListener( 'slidechanged', function( event ) {
+		checkReload();
+		netdataUpdate(event);
+	} );
+	
+	Reveal.addEventListener( 'overviewshown', function( event ) {
+		hideFooter();
+		netdataUpdate(event);
+	} );
+	
+	Reveal.addEventListener( 'overviewhidden', function( event ) {
+		showFooter();
+		netdataUpdate(event);
+	} );
+	
+	Reveal.addEventListener( 'transactions-distribution', function() {
+	}, false );
+	
+	Reveal.addEventListener( 'transactions-approved', function() {
+	}, false );
+
+	Reveal.addEventListener( 'finish', function() {
+		// goto slide 1
+		Reveal.slide(1);
+	}, false );
+</script>

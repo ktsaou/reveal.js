@@ -36,21 +36,23 @@
 		<style>
 		.reveal .footer {
 			position: absolute;
-			bottom: 1em;
-			left: 1em;
+			bottom: 35px;
+			left: 80px;
 			font-size: 0.5em;
+			color: white;
+			z-index: 1000;
 		}
 		</style>
 	</head>
 
 	<body>
-
 		<div class="reveal">
-			<div class='footer'>
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<div id="footer" class='footer'>
 				&nbsp;
 			</div>
 
-			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section data-state="transactions-distribution">
 					<h4>acquiring transactions distribution</h4>
@@ -627,77 +629,31 @@
 
 
 
-<!--
-				<section data-state="finish">
+<!--				<section data-state="finish" data-background="#660000">
+					hello
 				</section>
 -->
 
 			</div>
 
 		</div>
-
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
-
-		<script>
-
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				// The "normal" size of the presentation, aspect ratio will be preserved
-				// when the presentation is scaled to fit different resolutions. Can be
-				// specified using percentage units.
-				width: 1280,
-				height: 720,
-
-				// Factor of the display size that should remain empty around the content
-				margin: 0.1,
-
-				// Bounds for smallest/largest possible scale to apply to content
-				minScale: 0.2,
-				maxScale: 1.5,
-
-				controls: false,
-				progress: false,
-				history: true,
-				center: false,
-				loop: true,
-				overview: false,
-				keyboard: true,
-				touch: false,
-				help: false,
-				showNotes: false,
-				autoSlideStoppable: true,
-
-				autoSlide: 30000,
-
-				transition: 'convex', // none/fade/slide/convex/concave/zoom
-
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
-
-		</script>
-
 	</body>
 </html>
 
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
 <script type="text/javascript">
-
 	var revealIsReady = false;
 	var netdataIsReady = false;
+
+	// ------------------------------------------------------------------------
+	// netdata configuration variables
 
 	var netdataDontStart = false;
 	var netdataNoBootstrap = true;
 	var netdataRegistry = false;
 	var netdataShowHelp = false;
-	var netdataShowAlarms = false;
+	
 	var netdataIntersectionObserver = false;
 	var netdataTheme = 'slate';
 	// var netdataServer = 'https://jira.viva.gr/netdata/';
@@ -708,6 +664,88 @@
 		netdataUpdate();
 	};
 
+	// ------------------------------------------------------------------------
+	// netdata alarms configuration
+
+	var netdataShowAlarms = true;		// notify us of new alarms, filtered by our recipients
+	var netdataAlarmsRemember = false;  // every time the page is refreshed, re-calculate if we have raised alarms or not
+	var netdataAlarmsRecipients = [ 'acquiring' ]; // the alarm roles to process
+
+	var raised_alarms = 0;
+	var netdataAlarmsActiveCallback = function(data) {
+		//console.log('all');
+		//console.log(data);
+		var active = NETDATA.alarms.activeForRecipients();
+		//console.log('filtered');
+		//console.log(active);
+		var warning = 0, critical = 0;
+
+		for(var x in active)
+			if(active.hasOwnProperty(x)) {
+				if(active[x].status === 'WARNING')
+					warning++;
+				else if(active[x].status === 'CRITICAL')
+					critical++;
+			}
+
+		raised_alarms = warning + critical;
+
+		if(raised_alarms > 0) {
+			var msg = 'There ' + ((raised_alarms > 1)?'are':'is').toString() + ' ';
+			if(warning > 0) msg += warning.toString() + ' WARNING';
+			if(critical > 0) {
+				if(warning > 0) msg += ' and ';
+				msg += critical.toString() + ' CRITICAL'
+			}
+			msg += ' ' + ((raised_alarms > 1)?'alarms':'alarm').toString() + ' ';
+
+			document.getElementById('footer').innerHTML = msg;
+			showFooter();
+		}
+		else
+			hideFooter();
+
+	};
+
+	var netdataAlarmsNotifCallback = function(entry) {
+		// return false = do not show web notifications
+		return false;
+	};
+
+	var raised_alarms_count = 0;
+	var raised_alarms_colors = [
+		'#440000',
+		'#660000'
+		// 'rgb(68, 0, 0) none repeat scroll 0% 0%',
+		// 'rgb(102, 0, 0) none repeat scroll 0% 0%'
+	];
+	var checkRaisedAlarms = function() {
+		if(netdataIsReady === true && revealIsReady === true) {
+			var color = '';
+
+			if(raised_alarms) {
+				raised_alarms_count++;
+				if(raised_alarms_count >= raised_alarms_colors.length)
+					raised_alarms_count = 0;
+
+				color = raised_alarms_colors[raised_alarms_count];
+			}
+
+			var len = Reveal.getSlides().length;
+			while(len--) {
+				// document.body.style.background = color;
+				Reveal.getSlideBackground(len).style.background = color;
+			}
+		}
+
+		setTimeout(checkRaisedAlarms, 1000);
+	};
+	setTimeout(checkRaisedAlarms, 1000);
+
+
+	// ------------------------------------------------------------------------
+	// netdata enable/disable charts per slide
+
 	var last_state = undefined;
 	function netdataUpdate(event) {
 		var state = last_state;
@@ -716,7 +754,7 @@
 			&& typeof event.currentSlide !== 'undefined'
 			&& typeof event.currentSlide.dataset !== 'undefined'
 			&& typeof event.currentSlide.dataset.state !== 'undefined')
-			state = last_state = event.currentSlide.dataset.state;
+			state = event.currentSlide.dataset.state;
 
 		if(netdataIsReady && revealIsReady) {
 			$('.reveal-netdata-charts').hide();
@@ -728,14 +766,18 @@
 
 			NETDATA.onscroll();
 		}
+
+		last_state = state;
 	}
 
 	function showFooter() {
-		document.querySelector('.reveal .footer').style.display = 'block';
+		console.log('showing footer');
+		document.getElementById('footer').style.display = 'block';
 	}
 
 	function hideFooter() {
-		document.querySelector('.reveal .footer').style.display = 'none';
+		console.log('hiding footer');
+		document.getElementById('footer').style.display = 'none';
 	}
 
 	var lastReload = Date.now();
@@ -747,15 +789,57 @@
 		}
 	}
 
-
 </script>
 <script type="text/javascript" src="https://jira.viva.gr/netdata/dashboard.js"></script>
+<!-- <script type="text/javascript" src="http://localhost:19999/dashboard.js"></script> -->
 <script type="text/javascript">
 
 	NETDATA.options.current.pixels_per_point = 1;
 	NETDATA.options.current.stop_updates_when_focus_is_lost = false;
 
-	
+
+	// More info https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		// The "normal" size of the presentation, aspect ratio will be preserved
+		// when the presentation is scaled to fit different resolutions. Can be
+		// specified using percentage units.
+		width: 1280,
+		height: 720,
+
+		// Factor of the display size that should remain empty around the content
+		margin: 0.1,
+
+		// Bounds for smallest/largest possible scale to apply to content
+		minScale: 0.2,
+		maxScale: 1.5,
+
+		controls: false,
+		progress: false,
+		history: true,
+		center: false,
+		loop: true,
+		overview: false,
+		keyboard: true,
+		touch: true,
+		help: false,
+		showNotes: false,
+		autoSlideStoppable: true,
+
+		autoSlide: 30000,
+
+		transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+		// More info https://github.com/hakimel/reveal.js#dependencies
+		dependencies: [
+			{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+			{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+			{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+			{ src: 'plugin/zoom-js/zoom.js', async: true },
+			{ src: 'plugin/notes/notes.js', async: true }
+		]
+	});
+
 	Reveal.addEventListener( 'ready', function( event ) {
 		revealIsReady = true;
 		netdataUpdate(event);
@@ -767,12 +851,10 @@
 	} );
 	
 	Reveal.addEventListener( 'overviewshown', function( event ) {
-		hideFooter();
 		netdataUpdate(event);
 	} );
 	
 	Reveal.addEventListener( 'overviewhidden', function( event ) {
-		showFooter();
 		netdataUpdate(event);
 	} );
 	
@@ -784,6 +866,6 @@
 
 	Reveal.addEventListener( 'finish', function() {
 		// goto slide 1
-		Reveal.slide(1);
+		//Reveal.slide(1);
 	}, false );
 </script>
